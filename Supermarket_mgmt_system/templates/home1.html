@@ -1,0 +1,12 @@
+{% extends 'geda/main.html'%}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+  
+       {% for p in product_list %}
+       <h3>{{p.title}}</h3>
+{% endfor %}
+
+{% endblock %}

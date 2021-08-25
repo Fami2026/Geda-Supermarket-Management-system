@@ -1,0 +1,44 @@
+{% extends 'geda/main.html'%}
+{%block content%}
+{% load crispy_forms_tags %}
+<br>
+<h1 style="text-align: center;"><i> PRODUCT PAGE</i></h1>
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+
+                <form method='POST' action=""> 
+                	{% csrf_token %}
+                	{{form|crispy}}
+                	<input type="submit" value="search"/>
+                	
+                </form>
+                <br>
+					<h5>Products</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Product</th>
+							<th>Category</th>
+							<th>Price</th>
+						</tr>
+
+						{%for i in product %}
+						<tr>
+                          <td>{{i.name }}</td>
+                           <td>{{i.category }}</td>
+                            <td><h6>{{i.price }} Birr</h6></td>
+
+                         </tr>
+
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+
+{% endblock%}
